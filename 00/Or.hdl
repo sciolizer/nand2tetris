@@ -1,0 +1,21 @@
+/**
+ *  Or gate:
+ *  If a=b=0 then out=0 else out=1
+ a | b | not a | not b
+ 0 | 0 | 1     | 1
+ 0 | 1 | 1     | 0
+ 1 | 0 | 0     | 1
+ 1 | 1 | 0     | 0
+ */
+
+CHIP Or {
+
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    Not (in=a, out=nota);
+    Not (in=b, out=notb);
+    Nand (a=nota, b=notb, out=out);
+}
+
