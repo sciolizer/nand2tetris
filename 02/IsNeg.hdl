@@ -1,0 +1,12 @@
+/**
+ * Return highest order bit.
+ */
+
+CHIP IsNeg {
+
+    IN in[16];
+    OUT out;
+
+    PARTS:
+    Is(in=in[15], out=out);
+}

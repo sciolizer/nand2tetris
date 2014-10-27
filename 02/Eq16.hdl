@@ -1,0 +1,41 @@
+/*
+ * Checks if two 16 bit values are equal.
+ */
+
+CHIP Eq16 {
+    IN a[16], b[16];
+    OUT out;
+
+    PARTS:
+    Eq(a=a[0], b=b[0], out=c);
+    Eq(a=a[1], b=b[1], out=d);
+    Eq(a=a[2], b=b[2], out=e);
+    Eq(a=a[3], b=b[3], out=f);
+    Eq(a=a[4], b=b[4], out=g);
+    Eq(a=a[5], b=b[5], out=h);
+    Eq(a=a[6], b=b[6], out=i);
+    Eq(a=a[7], b=b[7], out=j);
+    Eq(a=a[8], b=b[8], out=k);
+    Eq(a=a[9], b=b[9], out=l);
+    Eq(a=a[10], b=b[10], out=m);
+    Eq(a=a[11], b=b[11], out=n);
+    Eq(a=a[12], b=b[12], out=o);
+    Eq(a=a[13], b=b[13], out=p);
+    Eq(a=a[14], b=b[14], out=q);
+    Eq(a=a[15], b=b[15], out=r);
+    And(a=c, b=d, out=cd);
+    And(a=e, b=f, out=ef);
+    And(a=g, b=h, out=gh);
+    And(a=i, b=j, out=ij);
+    And(a=k, b=l, out=kl);
+    And(a=m, b=n, out=mn);
+    And(a=o, b=p, out=op);
+    And(a=q, b=r, out=qr);
+    And(a=cd, b=ef, out=cdef);
+    And(a=gh, b=ij, out=ghij);
+    And(a=kl, b=mn, out=klmn);
+    And(a=op, b=qr, out=opqr);
+    And(a=cdef, b=ghij, out=cdefghij);
+    And(a=klmn, b=opqr, out=klmnopqr);
+    And(a=cdefghij, b=klmnopqr, out=out);
+}

@@ -52,5 +52,9 @@ CHIP ALU {
     And16(a=alteredX, b=alteredY, out=conjunction);
     Mux16(a=conjunction, b=sum, sel=f, out=unnegatedOut);
     Not16(in=unnegatedOut, out=negatedOut);
-    Mux16(a=unnegatedOut, b=negatedOut, sel=no, out=out);
+    Mux16(a=unnegatedOut, b=negatedOut, sel=no, out=almostOut);
+    IsNeg(in=almostOut, out=ng);
+    Eq16(a=almostOut, b=false, out=zr);
+    Not16(in=almostOut, out=veryNearlyOut); // buh
+    Not16(in=veryNearlyOut, out=out);
 }
