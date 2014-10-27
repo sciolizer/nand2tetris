@@ -1,0 +1,34 @@
+/**
+ *  8-way demultiplexor
+ *  if sel=000 then {a=in, rest=0}
+ *  if sel=001 then {b=in, rest=0}
+ *  if sel=010 then {c=in, rest=0}
+ *  if sel=011 then {d=in, rest=0}
+ *  if sel=100 then {e=in, rest=0}
+ *  if sel=101 then {f=in, rest=0}
+ *  if sel=110 then {g=in, rest=0}
+ *  if sel=111 then {h=in, rest=0}
+ */
+
+CHIP DMux8Way {
+
+    IN in, sel[3];
+    OUT a, b, c, d, e, f, g, h;
+
+    PARTS:
+    Demux (in=in, sel=sel[0], a=aceg, b=bdfh);
+    Demux (in=in, sel=sel[1], a=abef, b=cdgh);
+    Demux (in=in, sel=sel[2], a=abcd, b=efgh);
+    And (a=aceg, b=abef, out=ae);
+    And (a=bdfh, b=abef, out=bf);
+    And (a=aceg, b=cdgh, out=cg);
+    And (a=bdfh, b=cdgh, out=dh);
+    And (a=ae, b=abcd, out=a);
+    And (a=bf, b=abcd, out=b);
+    And (a=cg, b=abcd, out=c);
+    And (a=dh, b=abcd, out=d);
+    And (a=ae, b=efgh, out=e);
+    And (a=bf, b=efgh, out=f);
+    And (a=cg, b=efgh, out=g);
+    And (a=dh, b=efgh, out=h);
+}
