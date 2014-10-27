@@ -1,0 +1,13 @@
+/**
+ * Is gate (is this necessary?)
+ * out=in
+ */
+
+CHIP Is {
+
+    IN in;
+    OUT out;
+
+    PARTS:
+    And(a=in, b=in, out=out);
+}
