@@ -1,0 +1,29 @@
+/**
+ *  FanOut[16] gate
+ *  If in=0, out=0000000000000000
+ *  If in=1, out=1111111111111111
+ */
+
+CHIP FanOut16 {
+
+    IN in;
+    OUT out[16];
+
+    PARTS:
+    Is(in=in, out=out[0]);
+    Is(in=in, out=out[1]);
+    Is(in=in, out=out[2]);
+    Is(in=in, out=out[3]);
+    Is(in=in, out=out[4]);
+    Is(in=in, out=out[5]);
+    Is(in=in, out=out[6]);
+    Is(in=in, out=out[7]);
+    Is(in=in, out=out[8]);
+    Is(in=in, out=out[9]);
+    Is(in=in, out=out[10]);
+    Is(in=in, out=out[11]);
+    Is(in=in, out=out[12]);
+    Is(in=in, out=out[13]);
+    Is(in=in, out=out[14]);
+    Is(in=in, out=out[15]);
+}
