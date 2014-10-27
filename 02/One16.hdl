@@ -1,0 +1,30 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/02/HalfAdder.hdl
+
+/**
+ * Computes the sum of two bits.
+ */
+
+CHIP One16 {
+    OUT out[16]; // the number 1
+
+    PARTS:
+    Is(in=true, out=out[0]);
+    Is(in=false, out=out[1]);
+    Is(in=false, out=out[2]);
+    Is(in=false, out=out[3]);
+    Is(in=false, out=out[4]);
+    Is(in=false, out=out[5]);
+    Is(in=false, out=out[6]);
+    Is(in=false, out=out[7]);
+    Is(in=false, out=out[8]);
+    Is(in=false, out=out[9]);
+    Is(in=false, out=out[10]);
+    Is(in=false, out=out[11]);
+    Is(in=false, out=out[12]);
+    Is(in=false, out=out[13]);
+    Is(in=false, out=out[14]);
+    Is(in=false, out=out[15]);
+}
