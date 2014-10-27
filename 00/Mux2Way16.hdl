@@ -1,0 +1,19 @@
+/**
+ *  Mux2Way16 gate
+ *  If sel = 0, out = a
+ *  If sel = 1, out = b
+ */
+
+CHIP Mux2Way16 {
+
+    IN a[16], b[16], sel;
+    OUT out[16];
+
+    PARTS:
+    Not (in=sel, out=notsel);
+    FanOut16 (in=sel, out=sel16);
+    FanOut16 (in=notsel, out=notsel16);
+    And16 (a=a, b=notsel16, out=leftout);
+    And16 (a=sel16, b=b, out=rightout);
+    Or16 (a=leftout, b=rightout, out=out);
+}
