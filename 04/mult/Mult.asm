@@ -14,7 +14,7 @@ M=0
 D=M
 @end
 D;JLE
-@R0
+@R2
 D=M
 @R1
 D=D+M
