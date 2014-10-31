@@ -20,6 +20,8 @@ D=M
 D=D+M
 @R2
 M=D
+@R0
+M=M-1
 @add
 0;JMP
 (end)
