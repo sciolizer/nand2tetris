@@ -23,6 +23,8 @@ D;JEQ
 @R0
 A=M
 M=-1
+@R0
+M=M+1
 @fill
 0;JMP
 (start-empty)
@@ -38,5 +40,7 @@ D;JNE
 @R0
 A=M
 M=0
-@fill
+@R0
+M=M+1
+@empty
 0;JMP
