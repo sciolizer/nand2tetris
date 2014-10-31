@@ -9,3 +9,34 @@
 // program clears the screen, i.e. writes "white" in every pixel.
 
 // Put your code here.
+// R0 - current location on screen
+(start-fill)
+@SCREEN
+D=A
+@R0
+M=D
+(fill)
+@KBD
+D=M
+@start-empty
+D;JEQ
+@R0
+A=M
+M=-1
+@fill
+0;JMP
+(start-empty)
+@SCREEN
+D=A
+@R0
+M=D
+(empty)
+@KBD
+D=M
+@start-fill
+D;JNE
+@R0
+A=M
+M=0
+@fill
+0;JMP
